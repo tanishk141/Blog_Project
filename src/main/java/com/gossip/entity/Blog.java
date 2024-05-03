@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -17,6 +18,7 @@ public class Blog {
 	
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
+    @Id
 	private Integer id;
 
 	@Column(name = "title")
@@ -29,7 +31,7 @@ public class Blog {
 	private Boolean publish;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "userId")
 	private User user;
 	
 	@Column(name="createdAt")

@@ -8,4 +8,7 @@ import com.gossip.entity.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 
+
+	User findByUserName(String userName);
+	
 }

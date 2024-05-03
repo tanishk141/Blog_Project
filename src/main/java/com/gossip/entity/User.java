@@ -1,15 +1,11 @@
 package com.gossip.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +14,7 @@ public class User {
 	
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
+    @Id
 	private Integer id;
 	
 	@Column(name="fullName")
@@ -32,12 +29,6 @@ public class User {
 	@Column(name="role")
 	private Byte role;
 	
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Blog> blogs = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
-
 	@Column(name="createdAt")
 	private LocalDateTime createdAt;
 	
